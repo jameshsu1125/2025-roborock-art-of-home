@@ -1,3 +1,4 @@
+import Container from '@/components/container';
 import LoadingProcess from '@/components/loadingProcess';
 import { PAGE } from '@/settings/config';
 import { Context, InitialState, Reducer } from '@/settings/constant';
@@ -6,7 +7,6 @@ import { ActionType, TContext } from '@/settings/type';
 import Click from 'lesca-click';
 import Fetcher, { contentType, formatType } from 'lesca-fetcher';
 import { Suspense, lazy, memo, useContext, useMemo, useReducer } from 'react';
-import Div100vh from 'react-div-100vh';
 import ReactDOM from 'react-dom/client';
 
 Click.install();
@@ -50,9 +50,9 @@ const App = () => {
   return (
     <div className='App'>
       <Context.Provider {...{ value }}>
-        <Div100vh>
+        <Container>
           <Pages />
-        </Div100vh>
+        </Container>
         {state[ActionType.LoadingProcess]?.enabled && <LoadingProcess />}
       </Context.Provider>
     </div>
