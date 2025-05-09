@@ -18,6 +18,7 @@
     "lesca-react-onload": "^1.0.18",
     "lesca-use-tween": "^3.1.2",
     "react": "^19.1.0",
+    "react-div-100vh": "^0.7.0",
     "react-dom": "^19.1.0",
     "react-loading": "^2.0.3",
     "react-router-dom": "^7.6.0"
