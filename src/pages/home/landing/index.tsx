@@ -1,15 +1,14 @@
-import Button from '@/components/button';
 import { memo, useContext } from 'react';
+import { twMerge } from 'tailwind-merge';
 import { HomeContext, HomePageType } from '../config';
+import Btn from './btn';
+import Headline from './headline';
 import './index.less';
 import Logo from './logo';
-import { twMerge } from 'tailwind-merge';
-import Headline from './headline';
 import Subline from './subline';
-import Btn from './btn';
 
 const Landing = memo(() => {
-  const [state, setState] = useContext(HomeContext);
+  const [state] = useContext(HomeContext);
 
   return (
     <div className={twMerge('Landing', state.page === HomePageType.Landing ? 'block' : 'hidden')}>

@@ -1,0 +1,9 @@
+@font-face {
+  font-family: 'NotoSansTC';
+  src:
+    url('subset-NotoSerifTC-Bold-Alphabetic.woff2') format('woff2'),
+    url('subset-NotoSerifTC-Bold-Alphabetic.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}

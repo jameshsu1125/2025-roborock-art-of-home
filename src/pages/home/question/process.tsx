@@ -1,12 +1,32 @@
 import { memo, useContext, useEffect } from 'react';
-import { HomeContext } from '../config';
+import { HomeContext, HomePageType, HomeQuestions } from '../config';
+import { Context } from '@/settings/constant';
+import { ActionType } from '@/settings/type';
+import { PAGE } from '@/settings/config';
+import useTween, { Bezier } from 'lesca-use-tween';
 
 const Process = memo(() => {
-  const [{ question }] = useContext(HomeContext);
+  const [, setContext] = useContext(Context);
+  const [{ question, page }] = useContext(HomeContext);
 
-  useEffect(() => {}, []);
+  const [style, setStyle] = useTween({ opacity: 0, y: -100 });
+
+  useEffect(() => {
+    if (question === HomeQuestions.length) {
+      setTimeout(() => {
+        setContext({ type: ActionType.Page, state: PAGE.result });
+      }, 800);
+    }
+  }, [question]);
+
+  useEffect(() => {
+    if (page === HomePageType.Question) {
+      setStyle({ opacity: 1, y: 0 }, { duration: 600, easing: Bezier.outBack });
+    }
+  }, [page]);
+
   return (
-    <div className='Process'>
+    <div className='Process' style={style}>
       <div style={{ width: `${question * 20}%` }} />
     </div>
   );

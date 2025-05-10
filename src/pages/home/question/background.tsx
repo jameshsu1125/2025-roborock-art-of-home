@@ -1,11 +1,13 @@
 import { memo, useContext, useEffect, useRef } from 'react';
-import { HomeContext } from '../config';
+import { HomeContext, HomeQuestions } from '../config';
 
 const Images = memo(({ index }: { index: number }) => {
   const ref = useRef<HTMLDivElement>(null);
   const [{ question }] = useContext(HomeContext);
 
   useEffect(() => {
+    if (question >= HomeQuestions.length) return;
+
     if (question === index) ref.current?.style.setProperty('opacity', '1');
     else ref.current?.style.setProperty('opacity', '0');
   }, [question]);

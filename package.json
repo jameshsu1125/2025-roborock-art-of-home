@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "rm": "rm -rf node_modules/ dist/ package-lock.json",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "deploy": "touch dist/.nojekyll && gh-pages -d dist -t true"
+    "deploy": "touch dist/.nojekyll && gh-pages -d dist"
   },
   "dependencies": {
     "@faker-js/faker": "^9.7.0",
