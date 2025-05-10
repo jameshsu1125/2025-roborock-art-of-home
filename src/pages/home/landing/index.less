@@ -1,0 +1,163 @@
+@import url('@/settings/global.css');
+
+.Landing {
+  @apply absolute top-0 h-full w-full;
+
+  .bg {
+    padding-bottom: (unit(image-height(@img) / unit(image-width(@img))) * 100%);
+
+    @img: './img/room.jpg';
+    @apply absolute top-0 w-full;
+
+    &::before {
+      background-image: url(@img);
+      content: '';
+      @apply absolute h-full w-full bg-cover mix-blend-multiply;
+    }
+
+    & > div {
+      width: 22%;
+      @apply absolute h-full;
+
+      &::before {
+        top: 115%;
+        padding-bottom: (unit(image-height(@img) / unit(image-width(@img))) * 100%);
+        background-image: url(@img);
+        content: '';
+
+        @img: './img/line.svg';
+        @apply absolute w-full bg-cover;
+      }
+    }
+  }
+
+  .ink {
+    background-image: url(./img/ink.jpg);
+    @apply absolute h-full w-full bg-cover bg-bottom mix-blend-multiply;
+  }
+
+  .logo {
+    background-image: url(./img//logo.svg);
+    background-position: center 30px;
+    background-size: 42.5%;
+
+    @img: './img/logo.svg';
+    @apply absolute h-full w-full bg-no-repeat;
+  }
+
+  .content {
+    @apply absolute bottom-5 flex w-full flex-col items-center gap-3;
+
+    .headline {
+      width: (1047 / 1355) * 100%;
+      @apply relative;
+
+      &::before {
+        padding-bottom: (unit(image-height(@img) / unit(image-width(@img))) * 100%);
+        // background-image: url(@img);
+        content: '';
+
+        @img: './img/headline.svg';
+        @apply inline-block w-full bg-cover;
+      }
+
+      & > div {
+        @apply absolute;
+      }
+
+      & > div:nth-child(1) {
+        top: 0%;
+        left: 0%;
+        width: 44.400369%;
+
+        &::before {
+          padding-bottom: (unit(image-height(@img) / unit(image-width(@img))) * 100%);
+          background-image: url(@img);
+          content: '';
+
+          @img: './img/headline-0.svg';
+          @apply inline-block w-full bg-cover;
+        }
+      }
+
+      & > div:nth-child(2) {
+        top: 41%;
+        left: 13.9%;
+        width: 86.500369%;
+
+        &::before {
+          padding-bottom: (unit(image-height(@img) / unit(image-width(@img))) * 100%);
+          background-image: url(@img);
+          content: '';
+
+          @img: './img/headline-1.svg';
+          @apply inline-block w-full bg-cover;
+        }
+      }
+    }
+
+    .subline {
+      width: (860 / 1355) * 100%;
+      @apply relative;
+
+      &::before {
+        padding-bottom: (unit(image-height(@img) / unit(image-width(@img))) * 100%);
+        // background-image: url(@img);
+        content: '';
+
+        @img: './img/subline.svg';
+        @apply inline-block w-full bg-cover;
+      }
+
+      & > div {
+        @apply absolute;
+      }
+
+      & > div:nth-child(1) {
+        top: 0%;
+        left: 0%;
+        width: 100%;
+
+        &::before {
+          padding-bottom: (unit(image-height(@img) / unit(image-width(@img))) * 100%);
+          background-image: url(@img);
+          content: '';
+
+          @img: './img/subline-0.svg';
+          @apply inline-block w-full bg-cover;
+        }
+      }
+
+      & > div:nth-child(2) {
+        top: 57.4%;
+        left: 10.6%;
+        width: 78.200369%;
+
+        &::before {
+          padding-bottom: (unit(image-height(@img) / unit(image-width(@img))) * 100%);
+          background-image: url(@img);
+          content: '';
+
+          @img: './img/subline-1.svg';
+          @apply inline-block w-full bg-cover;
+        }
+      }
+    }
+
+    .btn {
+      width: (670 / 1355) * 100%;
+
+      @apply relative;
+
+      & > button {
+        @apply relative w-full;
+
+        .start {
+          background-image: url(./img/btn.svg);
+          background-size: 50.6%;
+          @apply h-full w-full bg-center bg-no-repeat;
+        }
+      }
+    }
+  }
+}

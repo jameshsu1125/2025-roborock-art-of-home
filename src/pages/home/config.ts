@@ -1,11 +1,28 @@
 import { createContext, Dispatch, SetStateAction } from 'react';
 
 export enum HomeStepType {
-  unset = 0,
-  fadeIn = 1,
+  Unset = 0,
+  FadeIn = 1,
 }
-export type THomeState = { step: HomeStepType };
+
+export enum HomePageType {
+  Landing = 0,
+  Question = 1,
+  Result = 2,
+}
+
+export type THomeState = {
+  step: HomeStepType;
+  page: HomePageType;
+  question: number;
+  answers: number[];
+};
 export type THomeContext = [THomeState, Dispatch<SetStateAction<THomeState>>];
 
-export const HomeState = { step: HomeStepType.unset };
+export const HomeState: THomeState = {
+  step: HomeStepType.Unset,
+  page: HomePageType.Question,
+  question: 0,
+  answers: [],
+};
 export const HomeContext = createContext<THomeContext>([HomeState, () => {}]);

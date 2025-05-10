@@ -1,14 +1,30 @@
-import { memo, useState } from 'react';
-import { HomeContext, HomeState, THomeState } from './config';
+import { Context } from '@/settings/constant';
+import { ActionType } from '@/settings/type';
+import OnloadProvider from 'lesca-react-onload';
+import { memo, useContext, useState } from 'react';
+import { HomeContext, HomeState, HomeStepType, THomeState } from './config';
 import './index.less';
+import Landing from './landing';
+import Question from './question';
 
 const Home = memo(() => {
+  const [, seContext] = useContext(Context);
   const [state, setState] = useState<THomeState>(HomeState);
 
   return (
-    <div className='Home'>
-      <HomeContext.Provider value={[state, setState]}>home</HomeContext.Provider>
-    </div>
+    <OnloadProvider
+      onload={() => {
+        seContext({ type: ActionType.LoadingProcess, state: { enabled: false } });
+        setState((S) => ({ ...S, step: HomeStepType.FadeIn }));
+      }}
+    >
+      <div className='Home'>
+        <HomeContext.Provider value={[state, setState]}>
+          <Landing />
+          <Question />
+        </HomeContext.Provider>
+      </div>
+    </OnloadProvider>
   );
 });
 

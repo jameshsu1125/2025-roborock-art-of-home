@@ -1,0 +1,127 @@
+@import url('@/settings/global.css');
+
+.Question {
+  @apply absolute top-0 flex h-full w-full flex-col items-center justify-start gap-10 p-5;
+
+  .Background {
+    @apply absolute top-0 left-0 h-full w-full;
+
+    & > div {
+      @apply absolute bottom-0 w-full bg-cover mix-blend-multiply;
+    }
+
+    & > div:nth-child(1) {
+      padding-bottom: (unit(image-height(@img) / unit(image-width(@img))) * 100%);
+      background-image: url(@img);
+
+      @img: './img/bg0.jpg';
+    }
+
+    & > div:nth-child(2) {
+      padding-bottom: (unit(image-height(@img) / unit(image-width(@img))) * 100%);
+      background-image: url(@img);
+
+      @img: './img/bg1.jpg';
+    }
+
+    & > div:nth-child(3) {
+      padding-bottom: (unit(image-height(@img) / unit(image-width(@img))) * 100%);
+      background-image: url(@img);
+
+      @img: './img/bg2.jpg';
+    }
+
+    & > div:nth-child(4) {
+      padding-bottom: (unit(image-height(@img) / unit(image-width(@img))) * 100%);
+      background-image: url(@img);
+
+      @img: './img/bg3.jpg';
+    }
+
+    & > div:nth-child(5) {
+      padding-bottom: (unit(image-height(@img) / unit(image-width(@img))) * 100%);
+      background-image: url(@img);
+
+      @img: './img/bg4.jpg';
+    }
+  }
+
+  .Process {
+    @apply relative mt-12 flex h-4 w-full justify-start overflow-hidden rounded-l-full rounded-r-full border-2 border-black;
+
+    & > div {
+      @apply bg-primary h-full w-0 duration-500 ease-in-out;
+    }
+  }
+
+  .Questions {
+    @apply relative flex w-full justify-center;
+
+    & > div {
+      @apply w-full bg-cover;
+    }
+  }
+
+  .q0 {
+    width: 666.28 / 1355 * 100%;
+
+    & > div {
+      padding-bottom: (unit(image-height(@img) / unit(image-width(@img))) * 100%);
+      background-image: url(@img);
+
+      @img: './img/q0.svg';
+    }
+  }
+
+  .q1 {
+    width: 766.8262 / 1355 * 100%;
+
+    & > div {
+      padding-bottom: (unit(image-height(@img) / unit(image-width(@img))) * 100%);
+      background-image: url(@img);
+
+      @img: './img/q1.svg';
+    }
+  }
+
+  .q2 {
+    width: 480.0557 / 1355 * 100%;
+
+    & > div {
+      padding-bottom: (unit(image-height(@img) / unit(image-width(@img))) * 100%);
+      background-image: url(@img);
+
+      @img: './img/q2.svg';
+    }
+  }
+
+  .q3 {
+    width: 360.5317 / 1355 * 100%;
+
+    & > div {
+      padding-bottom: (unit(image-height(@img) / unit(image-width(@img))) * 100%);
+      background-image: url(@img);
+
+      @img: './img/q3.svg';
+    }
+  }
+
+  .q4 {
+    width: 460.4512 / 1355 * 100%;
+
+    & > div {
+      padding-bottom: (unit(image-height(@img) / unit(image-width(@img))) * 100%);
+      background-image: url(@img);
+
+      @img: './img/q4.svg';
+    }
+  }
+
+  .Buttons {
+    @apply flex w-full flex-col items-center px-10;
+
+    & > button {
+      @apply w-full;
+    }
+  }
+}

@@ -1,0 +1,65 @@
+@import url('@/settings/global.css');
+
+.Loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+
+  .background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.9;
+    @apply bg-primary;
+  }
+
+  .balls {
+    mask-image: url('./img/loading-balls.svg');
+  }
+  .bars {
+    mask-image: url('./img/loading-bars.svg');
+  }
+
+  .bubbles {
+    mask-image: url('./img/loading-bubbles.svg');
+  }
+
+  .cubes {
+    mask-image: url('./img/loading-cubes.svg');
+  }
+
+  .cylon {
+    mask-image: url('./img/loading-cylon.svg');
+  }
+
+  .spin {
+    mask-image: url('./img/loading-spin.svg');
+  }
+
+  .spinningBubbles {
+    mask-image: url('./img/loading-spinning-bubbles.svg');
+  }
+
+  .spokes {
+    mask-image: url('./img/loading-spokes.svg');
+  }
+
+  .icon {
+    position: relative;
+    width: 3rem;
+    height: 3rem;
+
+    mask-repeat: no-repeat;
+    mask-size: contain;
+    mask-position: center;
+    @apply bg-loadingIcon;
+  }
+}

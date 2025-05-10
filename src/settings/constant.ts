@@ -10,7 +10,7 @@ import {
 } from './type';
 
 export const LoadingProcessState: TLoadingProcessState = {
-  enabled: false,
+  enabled: true,
   type: LoadingProcessType.Spokes,
   body: '',
 };

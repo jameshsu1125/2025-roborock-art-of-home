@@ -1,5 +1,6 @@
 import { IReactProps } from '@/settings/type';
 import Regular from './regular';
+import Question from './question';
 
 type TRegularProps = IReactProps & {
   id?: string;
@@ -16,6 +17,7 @@ const Button = ({ id, children, className, style, onClick }: TRegularProps) => {
   );
 };
 
-Button.regular = Regular;
+Button.Regular = Regular;
+Button.Question = Question;
 
 export default Button;

@@ -11,3 +11,16 @@ body {
 .App {
   @apply absolute h-full w-full;
 }
+
+@theme {
+  --animate-fadeIn: FadeIn 1s ease-out;
+
+  @keyframes FadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}

@@ -53,9 +53,6 @@ export default defineConfig(async ({ mode }) => {
       open: true,
       port: 5173,
       https: { key, cert },
-      proxy: {
-        '/api': 'http://localhost:3000',
-      },
     },
   };
 });

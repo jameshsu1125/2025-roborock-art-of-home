@@ -3,8 +3,9 @@
 @theme {
   --color-backgroundColor: #eee;
   --color-textColor: #111;
-  --color-primary: #870000;
+  --color-primary: #ea0029;
   --color-secondary: #ff6600;
   --color-tertiary: #ff0066;
   --color-quaternary: #00ff00;
+  --color-loadingIcon: #eee;
 }
