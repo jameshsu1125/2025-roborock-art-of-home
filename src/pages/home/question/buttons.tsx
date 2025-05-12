@@ -1,10 +1,13 @@
 import Button from '@/components/button';
 import { IReactProps } from '@/settings/type';
-import { memo, useContext, useEffect } from 'react';
-import { HomeContext, HomePageType, HomeQuestions } from '../config';
 import useTween from 'lesca-use-tween';
+import { memo, useContext, useEffect, useId } from 'react';
+import { HomeContext, HomePageType, HomeQuestions } from '../config';
+import Click from 'lesca-click';
 
 const SingleButton = memo(({ children, index }: IReactProps & { index: number }) => {
+  const id = useId();
+
   const [{ page, question }, setState] = useContext(HomeContext);
   const [style, setStyle] = useTween({ opacity: 0, y: 100 });
   useEffect(() => {
@@ -21,14 +24,16 @@ const SingleButton = memo(({ children, index }: IReactProps & { index: number })
       },
     );
   }, [question, page]);
+
+  useEffect(() => {
+    Click.add(`#${id}`, () => {
+      if (question >= HomeQuestions.length) return;
+      setState((S) => ({ ...S, question: S.question + 1, answers: [...S.answers, index] }));
+    });
+  }, [id, question]);
+
   return (
-    <Button
-      style={style}
-      onClick={() => {
-        if (question >= HomeQuestions.length) return;
-        setState((S) => ({ ...S, question: S.question + 1, answers: [...S.answers, index] }));
-      }}
-    >
+    <Button id={id} style={style}>
       <Button.Question>{children}</Button.Question>
     </Button>
   );

@@ -14,6 +14,7 @@ const Process = memo(() => {
   useEffect(() => {
     if (question === HomeQuestions.length) {
       setTimeout(() => {
+        setContext({ type: ActionType.LoadingProcess, state: { enabled: true } });
         setContext({ type: ActionType.Page, state: PAGE.result });
       }, 800);
     }

@@ -1,9 +1,11 @@
 import Button from '@/components/button';
-import { memo, useContext, useEffect } from 'react';
+import { memo, useContext, useEffect, useId } from 'react';
 import { HomeContext, HomePageType, HomeStepType } from '../config';
 import useTween, { Bezier } from 'lesca-use-tween';
+import Click from 'lesca-click';
 
 const Btn = memo(() => {
+  const id = useId();
   const [style, setStyle] = useTween({ opacity: 0, scale: 2 });
   const [{ step }, setState] = useContext(HomeContext);
 
@@ -13,14 +15,15 @@ const Btn = memo(() => {
     }
   }, [step]);
 
+  useEffect(() => {
+    Click.add(`#${id}`, () => {
+      setState((S) => ({ ...S, page: HomePageType.Question }));
+    });
+  }, [id]);
+
   return (
     <div className='btn' style={style}>
-      <Button
-        className='cursor-pointer'
-        onClick={() => {
-          setState((S) => ({ ...S, page: HomePageType.Question }));
-        }}
-      >
+      <Button id={id} className='cursor-pointer [&_*]:pointer-events-none'>
         <Button.Regular>
           <div className='start' />
         </Button.Regular>
