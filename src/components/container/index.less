@@ -1,0 +1,11 @@
+.Container {
+  & > div {
+    @apply h-auto;
+
+    @media only screen and (max-width: 36rem) {
+      & {
+        @apply h-full;
+      }
+    }
+  }
+}

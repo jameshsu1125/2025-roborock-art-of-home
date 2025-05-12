@@ -8,7 +8,6 @@ export enum HomeStepType {
 export enum HomePageType {
   Landing = 0,
   Question = 1,
-  Result = 2,
 }
 
 export type THomeState = {

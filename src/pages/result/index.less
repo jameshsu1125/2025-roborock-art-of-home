@@ -1,3 +1,271 @@
+@import url('@/settings/global.css');
+@gap: 5%;
+
 .Result {
-  @apply min-h-full w-full;
+  @apply relative h-full w-full;
+
+  .scrollable {
+    @apply relative h-full w-full overflow-x-hidden overflow-y-hidden;
+
+    @media only screen and (max-width: 36rem) {
+      & {
+        @apply overflow-y-auto;
+      }
+    }
+
+    .Images {
+      @apply w-full overflow-hidden rounded-xl;
+
+      & > div {
+        @apply w-full bg-cover;
+      }
+
+      .i0 {
+        padding-bottom: (unit(image-height(@img) / unit(image-width(@img))) * 100%);
+        background-image: url(@img);
+
+        @img: './img/r0.jpg';
+      }
+
+      .i1 {
+        padding-bottom: (unit(image-height(@img) / unit(image-width(@img))) * 100%);
+        background-image: url(@img);
+
+        @img: './img/r1.jpg';
+      }
+
+      .i2 {
+        padding-bottom: (unit(image-height(@img) / unit(image-width(@img))) * 100%);
+        background-image: url(@img);
+
+        @img: './img/r2.jpg';
+      }
+
+      .i3 {
+        padding-bottom: (unit(image-height(@img) / unit(image-width(@img))) * 100%);
+        background-image: url(@img);
+
+        @img: './img/r3.jpg';
+      }
+
+      .i4 {
+        padding-bottom: (unit(image-height(@img) / unit(image-width(@img))) * 100%);
+        background-image: url(@img);
+
+        @img: './img/r4.jpg';
+      }
+    }
+
+    .Title {
+      @apply relative flex w-full justify-center;
+
+      & > div {
+        @apply relative;
+        &::before {
+          content: '';
+
+          @apply inline-block w-full bg-cover;
+        }
+      }
+
+      .t0 {
+        width: 852 / 1355 * 100%;
+
+        &::before {
+          padding-bottom: (unit(image-height(@img) / unit(image-width(@img))) * 100%);
+          background-image: url(@img);
+          content: '';
+
+          @img: './img/t0.svg';
+        }
+      }
+
+      .t1 {
+        width: 776 / 1355 * 100%;
+
+        &::before {
+          padding-bottom: (unit(image-height(@img) / unit(image-width(@img))) * 100%);
+          background-image: url(@img);
+          content: '';
+
+          @img: './img/t1.svg';
+        }
+      }
+
+      .t2 {
+        width: 773 / 1355 * 100%;
+
+        &::before {
+          padding-bottom: (unit(image-height(@img) / unit(image-width(@img))) * 100%);
+          background-image: url(@img);
+          content: '';
+
+          @img: './img/t2.svg';
+        }
+      }
+
+      .t3 {
+        width: 919 / 1355 * 100%;
+
+        &::before {
+          padding-bottom: (unit(image-height(@img) / unit(image-width(@img))) * 100%);
+          background-image: url(@img);
+          content: '';
+
+          @img: './img/t3.svg';
+        }
+      }
+
+      .t4 {
+        width: 1001 / 1355 * 100%;
+
+        &::before {
+          padding-bottom: (unit(image-height(@img) / unit(image-width(@img))) * 100%);
+          background-image: url(@img);
+          content: '';
+
+          @img: './img/t4.svg';
+        }
+      }
+    }
+
+    .Social {
+      @apply flex w-full flex-col gap-3;
+      .fb-ig {
+        @apply relative grid w-full grid-cols-2 gap-5;
+
+        & > div:nth-child(1) {
+          padding-right: @gap;
+          @apply border-r border-black;
+        }
+
+        & > div {
+          gap: @gap;
+          @apply flex flex-row items-center justify-center;
+
+          .social-txt {
+            @apply font-notoSansTC text-sm leading-relaxed;
+
+            @media only screen and (max-width: 36rem) {
+              & {
+                font-size: 2.4vw;
+              }
+            }
+          }
+
+          .ig,
+          .fb {
+            width: 25%;
+            @apply relative bg-contain bg-center bg-no-repeat duration-150 active:scale-90;
+          }
+
+          .fb {
+            &::after {
+              padding-bottom: (unit(image-height(@img) / unit(image-width(@img))) * 100%);
+              background-image: url(@img);
+              content: '';
+
+              @img: './img/fb.svg';
+              @apply inline-block w-full bg-contain;
+            }
+          }
+
+          .ig {
+            &::after {
+              padding-bottom: (unit(image-height(@img) / unit(image-width(@img))) * 100%);
+              background-image: url(@img);
+              content: '';
+
+              @img: './img/ig.svg';
+              @apply inline-block w-full bg-contain;
+            }
+          }
+
+          & > div:nth-child(2) {
+            flex: 1 1 0%;
+            @apply flex items-center justify-center px-1;
+          }
+        }
+
+        & > div:nth-child(2) {
+          & > div:nth-child(2) {
+            padding-right: @gap;
+          }
+        }
+      }
+
+      .remind {
+        @apply flex w-full items-center justify-center border-t border-b border-black py-3;
+
+        @media only screen and (max-width: 36rem) {
+          & {
+            @apply py-1;
+          }
+        }
+
+        & > div {
+          width: 513.0645 / 1355 * 100%;
+
+          &::after {
+            padding-bottom: (unit(image-height(@img) / unit(image-width(@img))) * 100%);
+            background-image: url(@img);
+            content: '';
+
+            @img: './img/remind.svg';
+
+            @apply inline-block w-full bg-cover;
+          }
+        }
+      }
+    }
+
+    .Btns {
+      @apply flex w-full flex-row flex-wrap items-center justify-center gap-5;
+
+      @media only screen and (max-width: 36rem) {
+        & {
+          @apply gap-3;
+        }
+      }
+
+      button {
+        width: 42%;
+
+        @apply cursor-pointer overflow-hidden rounded-2xl duration-150 active:scale-90;
+
+        & > div {
+          padding-bottom: 25%;
+          background-position: center;
+          background-size: auto 60%;
+          background-repeat: no-repeat;
+
+          @apply w-full;
+        }
+      }
+
+      .btn-0 {
+        @apply bg-primary;
+
+        & > div {
+          background-image: url(./img/btn-0.svg);
+        }
+      }
+
+      .btn-1 {
+        @apply bg-secondary;
+
+        & > div {
+          background-image: url(./img/btn-1.svg);
+        }
+      }
+
+      .btn-2 {
+        @apply bg-black;
+
+        & > div {
+          background-image: url(./img/btn-2.svg);
+        }
+      }
+    }
+  }
 }
