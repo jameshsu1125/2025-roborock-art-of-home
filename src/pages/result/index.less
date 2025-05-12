@@ -14,45 +14,10 @@
     }
 
     .Images {
-      @apply w-full overflow-hidden rounded-xl;
+      @apply relative w-full overflow-hidden rounded-xl;
 
-      & > div {
-        @apply w-full bg-cover;
-      }
-
-      .i0 {
-        padding-bottom: (unit(image-height(@img) / unit(image-width(@img))) * 100%);
-        background-image: url(@img);
-
-        @img: './img/r0.jpg';
-      }
-
-      .i1 {
-        padding-bottom: (unit(image-height(@img) / unit(image-width(@img))) * 100%);
-        background-image: url(@img);
-
-        @img: './img/r1.jpg';
-      }
-
-      .i2 {
-        padding-bottom: (unit(image-height(@img) / unit(image-width(@img))) * 100%);
-        background-image: url(@img);
-
-        @img: './img/r2.jpg';
-      }
-
-      .i3 {
-        padding-bottom: (unit(image-height(@img) / unit(image-width(@img))) * 100%);
-        background-image: url(@img);
-
-        @img: './img/r3.jpg';
-      }
-
-      .i4 {
-        padding-bottom: (unit(image-height(@img) / unit(image-width(@img))) * 100%);
-        background-image: url(@img);
-
-        @img: './img/r4.jpg';
+      img {
+        @apply w-full;
       }
     }
 
@@ -156,7 +121,7 @@
           .ig,
           .fb {
             width: 25%;
-            @apply relative bg-contain bg-center bg-no-repeat duration-150 active:scale-90;
+            @apply relative bg-contain bg-center bg-no-repeat;
           }
 
           .fb {

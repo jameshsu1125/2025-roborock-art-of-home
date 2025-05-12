@@ -6,7 +6,7 @@ const Social = memo(() => {
     <div className='Social'>
       <div className='fb-ig'>
         <div>
-          <button className='fb cursor-pointer' />
+          <div className='fb' />
           <div className='social-txt'>
             FB活動貼文下留言
             <br />
@@ -16,7 +16,7 @@ const Social = memo(() => {
           </div>
         </div>
         <div>
-          <button className='ig cursor-pointer' />
+          <div className='ig' />
           <div className='social-txt'>
             個人IG轉發結果圖至
             <br />

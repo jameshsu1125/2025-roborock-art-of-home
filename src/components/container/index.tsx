@@ -4,7 +4,7 @@ import Div100vh from 'react-div-100vh';
 import './index.less';
 
 const Container = memo(({ children }: IReactProps) => (
-  <Div100vh className='Container flex items-center justify-center'>
+  <Div100vh className='Container'>
     <div className='relative w-full max-w-xl'>{children}</div>
   </Div100vh>
 ));

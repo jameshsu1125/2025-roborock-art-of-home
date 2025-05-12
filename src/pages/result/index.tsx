@@ -27,7 +27,7 @@ const Result = memo(() => {
       >
         <div className='Result'>
           <div className='scrollable'>
-            <div className='flex w-full flex-col items-center justify-start gap-5 p-5'>
+            <div className='flex w-full flex-col items-start justify-start gap-5 p-5'>
               <Images />
               <Title />
               <Social />

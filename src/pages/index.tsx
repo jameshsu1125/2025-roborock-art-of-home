@@ -5,11 +5,13 @@ import { Context, InitialState, Reducer } from '@/settings/constant';
 import '@/settings/global.css';
 import { ActionType, TContext } from '@/settings/type';
 import Click from 'lesca-click';
+import Facebook from 'lesca-facebook-share';
 import Fetcher, { contentType, formatType } from 'lesca-fetcher';
 import { Suspense, lazy, memo, useContext, useMemo, useReducer } from 'react';
 import ReactDOM from 'react-dom/client';
 
 Click.install();
+Facebook.install(import.meta.env.VITE_FACEBOOK_ID);
 
 Fetcher.install({
   hostUrl: import.meta.env.VITE_API_PATH || './api',
