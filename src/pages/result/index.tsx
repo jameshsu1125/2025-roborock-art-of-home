@@ -13,10 +13,17 @@ import Btns from './btn';
 const Result = memo(() => {
   const [, setContext] = useContext(Context);
   const [state, setState] = useState<TResultState>(ResultState);
+
   useEffect(() => {
-    Click.addPreventExcept('.scrollable');
+    setState((S) => ({
+      ...S,
+      index: Math.min(5, Math.floor(Math.random() * 5)),
+      step: ResultStepType.Unset,
+    }));
     setContext({ type: ActionType.LoadingProcess, state: { enabled: true } });
+    Click.addPreventExcept('.scrollable');
   }, []);
+
   return (
     <ResultContext.Provider value={[state, setState]}>
       <OnloadProvider

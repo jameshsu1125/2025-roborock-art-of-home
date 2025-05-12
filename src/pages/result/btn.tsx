@@ -1,8 +1,11 @@
+import { ACTIVE_URL, PAGE } from '@/settings/config';
+import { Context } from '@/settings/constant';
+import { ActionType } from '@/settings/type';
 import Facebook from 'lesca-facebook-share';
-import { memo, useEffect } from 'react';
+import { memo, useContext } from 'react';
 
 const Btns = memo(() => {
-  useEffect(() => {}, []);
+  const [, setContext] = useContext(Context);
   return (
     <div className='Btns'>
       <button
@@ -19,10 +22,20 @@ const Btns = memo(() => {
       >
         <div />
       </button>
-      <button className='btn-1'>
+      <button
+        className='btn-1'
+        onClick={() => {
+          setContext({ type: ActionType.Page, state: PAGE.home });
+        }}
+      >
         <div />
       </button>
-      <button className='btn-2'>
+      <button
+        className='btn-2'
+        onClick={() => {
+          window.open(ACTIVE_URL, '_blank');
+        }}
+      >
         <div />
       </button>
     </div>
