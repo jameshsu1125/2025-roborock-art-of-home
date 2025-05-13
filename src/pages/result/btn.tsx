@@ -11,9 +11,9 @@ const Share = memo(() => {
     Click.add(`#${id}`, () => {
       Facebook.share({
         method: 'share',
-        href: 'https://github.com/jameshsu1125/lesca-facebook-share',
-        quote: 'use share facebook api simply',
-        hashtag: 'lesca_facebook_share',
+        href: 'https://jameshsu1125.github.io/2025-roborock-art-of-home/',
+        // quote: 'use share facebook api simply',
+        hashtag: 'Roborock',
         redirect_uri: window.location.href,
       });
     });
@@ -30,6 +30,7 @@ const PlayAgain = memo(() => {
   const [, setContext] = useContext(Context);
   useEffect(() => {
     Click.add(`#${id}`, () => {
+      setContext({ type: ActionType.LoadingProcess, state: { enabled: true } });
       setContext({ type: ActionType.Page, state: PAGE.home });
     });
   }, [id]);
