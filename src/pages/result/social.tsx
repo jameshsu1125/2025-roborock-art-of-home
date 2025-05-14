@@ -1,6 +1,10 @@
+import useTween from 'lesca-use-tween';
+import UserAgent, { UserAgentType } from 'lesca-user-agent';
 import { memo, useContext, useEffect } from 'react';
 import { ResultContext, ResultStepType } from './config';
-import useTween from 'lesca-use-tween';
+
+const message =
+  UserAgent.get(false) === UserAgentType.Mobile ? '請長按下載圖片或截圖分享' : '請右鍵圖片下載圖片';
 
 const IG = memo(() => {
   const [style, setStyle] = useTween({ opacity: 0, y: 200 });
@@ -55,7 +59,16 @@ const FB_Text = memo(() => {
 
   useEffect(() => {
     if (step === ResultStepType.FadeIn) {
-      setStyle({ opacity: 1, y: 0 }, { duration: 500, delay: 350 });
+      setStyle(
+        { opacity: 1, y: 0 },
+        {
+          duration: 500,
+          delay: 350,
+          onEnd: () => {
+            alert(message);
+          },
+        },
+      );
     }
   }, [step]);
 
@@ -70,24 +83,21 @@ const FB_Text = memo(() => {
   );
 });
 
-const Social = memo(() => {
-  useEffect(() => {}, []);
-  return (
-    <div className='Social'>
-      <div className='fb-ig'>
-        <div>
-          <FB />
-          <FB_Text />
-        </div>
-        <div>
-          <IG />
-          <IG_Text />
-        </div>
+const Social = memo(() => (
+  <div className='Social'>
+    <div className='fb-ig'>
+      <div>
+        <FB />
+        <FB_Text />
       </div>
-      <div className='remind'>
-        <div />
+      <div>
+        <IG />
+        <IG_Text />
       </div>
     </div>
-  );
-});
+    <div className='remind'>
+      <div />
+    </div>
+  </div>
+));
 export default Social;

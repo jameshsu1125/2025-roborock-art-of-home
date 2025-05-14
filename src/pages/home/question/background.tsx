@@ -7,7 +7,6 @@ const Images = memo(({ index }: { index: number }) => {
 
   useEffect(() => {
     if (question >= HomeQuestions.length) return;
-
     if (question === index) ref.current?.style.setProperty('opacity', '1');
     else ref.current?.style.setProperty('opacity', '0');
   }, [question]);
@@ -15,14 +14,11 @@ const Images = memo(({ index }: { index: number }) => {
   return <div ref={ref} />;
 });
 
-const Background = memo(() => {
-  useEffect(() => {}, []);
-  return (
-    <div className='Background'>
-      {[...new Array(5).keys()].map((index, i) => (
-        <Images key={i} index={index} />
-      ))}
-    </div>
-  );
-});
+const Background = memo(() => (
+  <div className='Background'>
+    {[...new Array(5).keys()].map((index, i) => (
+      <Images key={i} index={index} />
+    ))}
+  </div>
+));
 export default Background;
