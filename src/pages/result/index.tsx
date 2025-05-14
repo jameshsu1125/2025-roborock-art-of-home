@@ -3,12 +3,16 @@ import { ActionType } from '@/settings/type';
 import Click from 'lesca-click';
 import OnloadProvider from 'lesca-react-onload';
 import { memo, useContext, useEffect, useState } from 'react';
+import Btns from './btn';
 import { ResultContext, ResultState, ResultStepType, TResultState } from './config';
 import Images from './images';
 import './index.less';
 import Social from './social';
 import Title from './title';
-import Btns from './btn';
+import UserAgent, { UserAgentType } from 'lesca-user-agent';
+
+const message =
+  UserAgent.get(false) === UserAgentType.Mobile ? '請長按下載圖片或截圖分享' : '請右鍵圖片下載圖片';
 
 const Result = memo(() => {
   const [, setContext] = useContext(Context);
@@ -30,6 +34,7 @@ const Result = memo(() => {
         onload={() => {
           setContext({ type: ActionType.LoadingProcess, state: { enabled: false } });
           setState((S) => ({ ...S, step: ResultStepType.FadeIn }));
+          alert(message);
         }}
       >
         <div className='Result'>

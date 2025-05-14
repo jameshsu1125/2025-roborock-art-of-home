@@ -19,6 +19,7 @@
     "lesca-fetcher": "^1.2.2",
     "lesca-react-onload": "^1.0.18",
     "lesca-use-tween": "^3.1.2",
+    "lesca-user-agent": "^2.0.1",
     "react": "^19.1.0",
     "react-div-100vh": "^0.7.0",
     "react-dom": "^19.1.0",
