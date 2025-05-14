@@ -11,7 +11,7 @@ const Share = memo(() => {
     Click.add(`#${id}`, () => {
       Facebook.share({
         method: 'share',
-        href: 'https://jameshsu1125.github.io/2025-roborock-art-of-home/',
+        href: 'https://roborock-art-of-cleaning.netlify.app/',
         // quote: 'use share facebook api simply',
         hashtag: 'Roborock',
         redirect_uri: window.location.href,
