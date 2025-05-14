@@ -98,66 +98,13 @@
       @apply flex w-full flex-col gap-3;
 
       .fb-ig {
-        @apply relative grid w-full grid-cols-2 gap-5 overflow-hidden;
+        padding-bottom: (unit(image-height(@img) / unit(image-width(@img))) * 100%);
+        width: 100%;
+        background-image: url(@img);
+        background-size: cover;
 
-        & > div:nth-child(1) {
-          padding-right: @gap;
-          @apply border-r border-black;
-        }
-
-        & > div {
-          gap: @gap;
-          @apply flex flex-row items-center justify-center overflow-hidden;
-
-          .social-txt {
-            @apply font-notoSansTC text-sm leading-relaxed;
-
-            @media only screen and (max-width: 36rem) {
-              & {
-                font-size: 2.4vw;
-              }
-            }
-          }
-
-          .ig,
-          .fb {
-            width: 25%;
-            @apply relative bg-contain bg-center bg-no-repeat;
-          }
-
-          .fb {
-            &::after {
-              padding-bottom: (unit(image-height(@img) / unit(image-width(@img))) * 100%);
-              background-image: url(@img);
-              content: '';
-
-              @img: './img/fb.svg';
-              @apply inline-block w-full bg-contain;
-            }
-          }
-
-          .ig {
-            &::after {
-              padding-bottom: (unit(image-height(@img) / unit(image-width(@img))) * 100%);
-              background-image: url(@img);
-              content: '';
-
-              @img: './img/ig.svg';
-              @apply inline-block w-full bg-contain;
-            }
-          }
-
-          & > div:nth-child(2) {
-            flex: 1 1 0%;
-            @apply flex items-center justify-center px-1;
-          }
-        }
-
-        & > div:nth-child(2) {
-          & > div:nth-child(2) {
-            padding-right: @gap;
-          }
-        }
+        @img: './img/fbig.svg';
+        @apply relative w-full;
       }
 
       .remind {
