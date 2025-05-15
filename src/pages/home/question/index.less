@@ -134,9 +134,13 @@
         @apply pointer-events-none;
       }
 
-      &:hover {
-        & > div {
-          @apply bg-primary;
+      @media only screen and (min-width: 36rem) {
+        & {
+          &:hover {
+            & > div {
+              @apply bg-primary;
+            }
+          }
         }
       }
 

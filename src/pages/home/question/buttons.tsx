@@ -9,13 +9,13 @@ const SingleButton = memo(({ children, index }: IReactProps & { index: number })
   const id = useId();
 
   const [{ page, question }, setState] = useContext(HomeContext);
-  const [style, setStyle] = useTween({ opacity: 0, y: 100 });
+  const [style, setStyle] = useTween({ opacity: 0, y: 0 });
   useEffect(() => {
     if (page === HomePageType.Landing) return;
     if (question >= HomeQuestions.length) return;
 
     setStyle(
-      { opacity: 0, y: 100 },
+      { opacity: 0, y: 0 },
       {
         duration: 1,
         onEnd: () => {
