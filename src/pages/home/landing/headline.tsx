@@ -7,9 +7,7 @@ const Text = memo(({ delay }: { delay: number }) => {
   const [style, setStyle] = useTween({ opacity: 0, x: 50 });
 
   useEffect(() => {
-    if (step === HomeStepType.FadeIn) {
-      setStyle({ opacity: 1, x: 0 }, { duration: 500, delay });
-    }
+    if (step === HomeStepType.FadeIn) setStyle({ opacity: 1, x: 0 }, { duration: 500, delay });
   }, [step]);
   return <div style={style} />;
 });

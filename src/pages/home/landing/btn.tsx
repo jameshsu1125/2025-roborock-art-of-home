@@ -1,8 +1,8 @@
 import Button from '@/components/button';
+import Click from 'lesca-click';
+import useTween, { Bezier } from 'lesca-use-tween';
 import { memo, useContext, useEffect, useId } from 'react';
 import { HomeContext, HomePageType, HomeStepType } from '../config';
-import useTween, { Bezier } from 'lesca-use-tween';
-import Click from 'lesca-click';
 
 const Btn = memo(() => {
   const id = useId();

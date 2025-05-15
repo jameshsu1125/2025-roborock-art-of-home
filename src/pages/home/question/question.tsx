@@ -1,7 +1,7 @@
+import useTween from 'lesca-use-tween';
 import { memo, useContext, useEffect } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { HomeContext, HomePageType, HomeQuestions } from '../config';
-import useTween from 'lesca-use-tween';
 
 const Questions = memo(() => {
   const [{ page, question }] = useContext(HomeContext);
@@ -13,12 +13,7 @@ const Questions = memo(() => {
 
     setStyle(
       { opacity: 0, y: 100 },
-      {
-        duration: 1,
-        onEnd: () => {
-          setStyle({ opacity: 1, y: 0 }, { duration: 600, delay: 500 });
-        },
-      },
+      { duration: 1, onEnd: () => setStyle({ opacity: 1, y: 0 }, { duration: 600, delay: 500 }) },
     );
   }, [page, question]);
 

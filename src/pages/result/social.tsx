@@ -12,16 +12,7 @@ const FB_IG = memo(() => {
 
   useEffect(() => {
     if (step === ResultStepType.FadeIn) {
-      setStyle(
-        { opacity: 1, y: 0 },
-        {
-          duration: 500,
-          delay: 300,
-          onEnd: () => {
-            alert(message);
-          },
-        },
-      );
+      setStyle({ opacity: 1, y: 0 }, { duration: 500, delay: 300, onEnd: () => alert(message) });
     }
   }, [step]);
 

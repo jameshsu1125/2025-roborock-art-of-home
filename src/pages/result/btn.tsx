@@ -56,13 +56,11 @@ const ActiveBtn = memo(() => {
   );
 });
 
-const Btns = memo(() => {
-  return (
-    <div className='Btns'>
-      <Share />
-      <PlayAgain />
-      <ActiveBtn />
-    </div>
-  );
-});
+const Btns = memo(() => (
+  <div className='Btns'>
+    <Share />
+    <PlayAgain />
+    <ActiveBtn />
+  </div>
+));
 export default Btns;

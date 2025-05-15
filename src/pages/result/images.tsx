@@ -11,14 +11,10 @@ const Images = memo(() => {
   const [style, setStyle] = useTween({ opacity: 0 });
   const [{ index, step }] = useContext(ResultContext);
 
-  const images = useMemo(() => {
-    return [Image0, Image1, Image2, Image3, Image4][index];
-  }, [index]);
+  const images = useMemo(() => [Image0, Image1, Image2, Image3, Image4][index], [index]);
 
   useEffect(() => {
-    if (step === ResultStepType.FadeIn) {
-      setStyle({ opacity: 1 }, { duration: 500 });
-    }
+    if (step === ResultStepType.FadeIn) setStyle({ opacity: 1 }, { duration: 500 });
   }, [step]);
 
   return (
