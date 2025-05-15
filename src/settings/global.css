@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 @import url('../../tailwind.config.css');
-@import url('./config.less');
+
 body {
   margin: 0;
 
@@ -26,6 +26,5 @@ body {
   }
 
   --font-notoSansTC:
-    'Noto Sans TC', 'NotoSansTC', 'Noto Sans CJK TC', 'Microsoft JhengHei', PingFang, STHeiti,
-    sans-serif, serif;
+    'Noto Sans TC', 'Noto Sans CJK TC', 'Microsoft JhengHei', PingFang, STHeiti, sans-serif, serif;
 }
