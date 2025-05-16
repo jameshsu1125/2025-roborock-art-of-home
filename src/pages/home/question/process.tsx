@@ -7,18 +7,19 @@ import useTween, { Bezier } from 'lesca-use-tween';
 
 const Process = memo(() => {
   const [, setContext] = useContext(Context);
-  const [{ question, page }] = useContext(HomeContext);
+  const [{ question, page, answers }] = useContext(HomeContext);
 
   const [style, setStyle] = useTween({ opacity: 0, y: -100 });
 
   useEffect(() => {
     if (question === HomeQuestions.length) {
       setTimeout(() => {
+        setContext({ type: ActionType.Answers, state: { data: answers } });
         setContext({ type: ActionType.LoadingProcess, state: { enabled: true } });
         setContext({ type: ActionType.Page, state: PAGE.result });
       }, 800);
     }
-  }, [question]);
+  }, [question, answers]);
 
   useEffect(() => {
     if (page === HomePageType.Question) {

@@ -1,9 +1,9 @@
 import Button from '@/components/button';
 import { IReactProps } from '@/settings/type';
+import Click from 'lesca-click';
 import useTween from 'lesca-use-tween';
 import { memo, useContext, useEffect, useId } from 'react';
 import { HomeContext, HomePageType, HomeQuestions } from '../config';
-import Click from 'lesca-click';
 
 const SingleButton = memo(({ children, index }: IReactProps & { index: number }) => {
   const id = useId();
@@ -28,6 +28,7 @@ const SingleButton = memo(({ children, index }: IReactProps & { index: number })
   useEffect(() => {
     Click.add(`#${id}`, () => {
       if (question >= HomeQuestions.length) return;
+
       setState((S) => ({ ...S, question: S.question + 1, answers: [...S.answers, index] }));
     });
   }, [id, question]);

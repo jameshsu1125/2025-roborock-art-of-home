@@ -18,6 +18,7 @@ export const LoadingProcessState: TLoadingProcessState = {
 export const InitialState: IState = {
   [ActionType.Page]: PAGE.home,
   [ActionType.LoadingProcess]: LoadingProcessState,
+  [ActionType.Answers]: { data: [...new Array(5).keys()].map(() => Math.floor(Math.random() * 5)) },
 };
 
 export const Context = createContext<TContext>([InitialState, () => {}]);

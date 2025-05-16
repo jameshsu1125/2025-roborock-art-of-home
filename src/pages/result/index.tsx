@@ -10,14 +10,29 @@ import './index.less';
 import Social from './social';
 import Title from './title';
 
+const QuestionIndex = [1, 4, 0, 2, 3];
+
 const Result = memo(() => {
-  const [, setContext] = useContext(Context);
+  const [context, setContext] = useContext(Context);
   const [state, setState] = useState<TResultState>(ResultState);
 
   useEffect(() => {
+    const { data: answers } = context[ActionType.Answers] || { data: [] };
+
+    const index =
+      answers.length === 0
+        ? undefined
+        : answers.reduce(
+            (acc, item) => {
+              const count = answers.filter((v) => v === item).length;
+              return count > acc.count ? { item, count } : acc;
+            },
+            { item: answers[0], count: 0 },
+          ).item;
+
     setState((S) => ({
       ...S,
-      index: Math.min(5, Math.floor(Math.random() * 5)),
+      index: QuestionIndex[index || 0],
       step: ResultStepType.Unset,
     }));
     setContext({ type: ActionType.LoadingProcess, state: { enabled: true } });
