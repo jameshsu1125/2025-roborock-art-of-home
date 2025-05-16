@@ -28,7 +28,6 @@ const SingleButton = memo(({ children, index }: IReactProps & { index: number })
   useEffect(() => {
     Click.add(`#${id}`, () => {
       if (question >= HomeQuestions.length) return;
-
       setState((S) => ({ ...S, question: S.question + 1, answers: [...S.answers, index] }));
     });
   }, [id, question]);

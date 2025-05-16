@@ -19,16 +19,17 @@ const Result = memo(() => {
   useEffect(() => {
     const { data: answers } = context[ActionType.Answers] || { data: [] };
 
-    const index =
-      answers.length === 0
-        ? undefined
-        : answers.reduce(
-            (acc, item) => {
-              const count = answers.filter((v) => v === item).length;
-              return count > acc.count ? { item, count } : acc;
-            },
-            { item: answers[0], count: 0 },
-          ).item;
+    const counts = answers.reduce((acc: Record<number, number>, num: number) => {
+      acc[num] = (acc[num] || 0) + 1;
+      return acc;
+    }, {});
+
+    const maxCount = Math.max(...Object.values(counts), 0);
+    const mostItems = Object.keys(counts)
+      .filter((key) => counts[Number(key)] === maxCount)
+      .map(Number);
+
+    const index = mostItems[Math.floor(Math.random() * mostItems.length)];
 
     setState((S) => ({
       ...S,
