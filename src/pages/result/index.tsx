@@ -9,8 +9,10 @@ import Images from './images';
 import './index.less';
 import Social from './social';
 import Title from './title';
+import Gtag from 'lesca-gtag';
 
 const QuestionIndex = [1, 4, 0, 2, 3];
+const QuestionTitle = ['印象派', '寫實主義', '立體派', '極簡主義', '野獸派'];
 
 const Result = memo(() => {
   const [context, setContext] = useContext(Context);
@@ -38,6 +40,8 @@ const Result = memo(() => {
     }));
     setContext({ type: ActionType.LoadingProcess, state: { enabled: true } });
     Click.addPreventExcept('.scrollable');
+
+    Gtag.pv(`結果頁-${QuestionTitle[QuestionIndex[index || 0]]}`);
   }, []);
 
   return (

@@ -3,19 +3,22 @@ import { Context } from '@/settings/constant';
 import { ActionType } from '@/settings/type';
 import Click from 'lesca-click';
 import Facebook from 'lesca-facebook-share';
+import Gtag from 'lesca-gtag';
 import { memo, useContext, useEffect, useId } from 'react';
 
 const Share = memo(() => {
   const id = useId();
   useEffect(() => {
     Click.add(`#${id}`, () => {
-      Facebook.share({
-        method: 'share',
-        href: 'https://roborock-art-of-cleaning.netlify.app/',
-        // quote: 'use share facebook api simply',
-        hashtag: 'Roborock',
-        redirect_uri: window.location.href,
-      });
+      Gtag.event('結果頁', '分享');
+      setTimeout(() => {
+        Facebook.share({
+          method: 'share',
+          href: 'https://roborock-art-of-cleaning.netlify.app/',
+          hashtag: 'Roborock',
+          redirect_uri: window.location.href,
+        });
+      }, 500);
     });
   }, [id]);
   return (
@@ -32,6 +35,7 @@ const PlayAgain = memo(() => {
     Click.add(`#${id}`, () => {
       setContext({ type: ActionType.LoadingProcess, state: { enabled: true } });
       setContext({ type: ActionType.Page, state: PAGE.home });
+      Gtag.event('結果頁', '再玩一次');
     });
   }, [id]);
 
@@ -46,7 +50,10 @@ const ActiveBtn = memo(() => {
   const id = useId();
   useEffect(() => {
     Click.add(`#${id}`, () => {
-      window.open(ACTIVE_URL, '_blank');
+      Gtag.event('結果頁', '立即擁有');
+      setTimeout(() => {
+        window.open(ACTIVE_URL, '_blank');
+      }, 500);
     });
   }, [id]);
   return (

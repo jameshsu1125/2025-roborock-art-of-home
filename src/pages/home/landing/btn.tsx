@@ -3,6 +3,7 @@ import Click from 'lesca-click';
 import useTween, { Bezier } from 'lesca-use-tween';
 import { memo, useContext, useEffect, useId } from 'react';
 import { HomeContext, HomePageType, HomeStepType } from '../config';
+import Gtag from 'lesca-gtag';
 
 const Btn = memo(() => {
   const id = useId();
@@ -17,6 +18,7 @@ const Btn = memo(() => {
 
   useEffect(() => {
     Click.add(`#${id}`, () => {
+      Gtag.event('首頁', '開始測驗');
       setState((S) => ({ ...S, page: HomePageType.Question }));
     });
   }, [id]);

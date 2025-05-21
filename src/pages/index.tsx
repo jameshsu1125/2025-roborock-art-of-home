@@ -7,10 +7,12 @@ import { ActionType, TContext } from '@/settings/type';
 import Click from 'lesca-click';
 import Facebook from 'lesca-facebook-share';
 import Fetcher, { contentType, formatType } from 'lesca-fetcher';
+import Gtag from 'lesca-gtag';
 import { Suspense, lazy, memo, useContext, useMemo, useReducer } from 'react';
 import ReactDOM from 'react-dom/client';
 
 Click.install();
+Gtag.install(import.meta.env.VITE_GTAG_ID || 'G-KY5N4CBBPL');
 Facebook.install(import.meta.env.VITE_FACEBOOK_ID);
 
 Fetcher.install({
